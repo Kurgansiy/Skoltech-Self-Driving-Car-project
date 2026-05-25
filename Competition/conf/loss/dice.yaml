@@ -1,0 +1,3 @@
+_target_: src.losses.DiceLoss
+smooth: 1.0
+ignore_val: 255

@@ -1,0 +1,37 @@
+_target_: src.models.BEVFusionNet
+name: "bev_fusion_net"
+
+# Input image resolution (must match dataset transform)
+img_h: 256
+img_w: 512
+
+# ImageBackbone FPN output channels
+backbone_out_ch: 192
+
+# FrustumTransform BEV feature channels
+bev_ch: 64
+
+# BEV voxel grid bounds: (min, max, cell_size)
+# X = forward (0..150 m), Y = lateral (-50..50 m), Z = height (-5..5 m)
+x_range: [0.0,   150.0,  0.7979]
+y_range: [-50.0,  50.0,  0.7937]
+z_range: [-5.0,   5.0,  10.0]
+
+# Depth frustum: (d_min, d_max, d_step)  → ~60 depth bins
+depth_range: [1.0, 150.0, 2.5]
+
+# Stride applied to BEV map after voxel pooling
+spatial_downsample: 2
+
+# GridDecoder stage config: list of [num_blocks, channels, stride]
+decoder_stage_cfg:
+  - [2, 96,  2]
+  - [2, 192, 2]
+
+# GridDecoder + OccHead output channels
+decoder_out_ch: 128
+
+# Final logit map size (H, W) — must match gt_occupancy_grid
+out_size: [188, 126]
+
+use_pretrained: true

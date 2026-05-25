@@ -1,0 +1,22 @@
+_target_: src.models.LSSBEVModel
+name: "lss_bev_resnet50"
+
+# backbone: "resnet50" | "efficientnet_b4" | "convnext_tiny"
+backbone: "resnet50"
+feat_ch: 64
+num_depth_bins: 32
+d_min: 1.0
+d_max: 50.0
+num_cameras: 4
+out_size: [188, 126]
+
+# BEV grid geometry (must match gt_occupancy_grid physical layout)
+# Each pixel = 0.8 m; grid is 188 (forward) x 126 (lateral)
+# Car origin = rear center; X forward, Y right
+# bev_x_offset: pixel index of x=0 (rear of car) → 0
+# bev_y_offset: pixel index of y=0 (car center) → -63 (half of 126)
+bev_h: 188
+bev_w: 126
+bev_res: 0.8
+bev_x_offset: 0.0
+bev_y_offset: -63.0

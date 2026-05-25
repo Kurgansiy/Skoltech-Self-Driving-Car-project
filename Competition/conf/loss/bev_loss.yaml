@@ -1,0 +1,5 @@
+_target_: src.losses.BEVLoss
+focal_alpha: 0.9
+focal_gamma: 2.0
+dice_weight: 2.0
+ignore_val: 255

@@ -1,0 +1,2 @@
+_target_: src.losses.MaskedBCELoss
+ignore_val: 255
