@@ -39,7 +39,7 @@ class BaseDataset(Dataset):
         self.transform = v2.Compose([
             v2.PILToTensor(),
             v2.Resize((256, 512)),
-            v2.ToDtype(torch.float32, scale=True),
+            v2.ToDtype(torch.float32),
             v2.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
         ])
         self.info = pd.read_csv(data_dir / "info.csv", index_col=0)
