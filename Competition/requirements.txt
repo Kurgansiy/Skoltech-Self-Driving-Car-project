@@ -1,0 +1,9 @@
+torch
+torchvision
+hydra-core
+omegaconf
+numpy
+pandas
+Pillow
+matplotlib
+tqdm
